@@ -1,0 +1,3 @@
+== README
+
+Code base for Hooray4Books prototype.
