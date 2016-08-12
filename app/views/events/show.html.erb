@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="uppercase"><%= @event['eventTitle'] %>: <%= @event['bookTitle'] %></h1>
+      <hr>
+      <div class="col-lg-3">
+        <%= link_to "Back to All Events", events_path %><br><br>
+        <%= image_tag(@event['bookThumbnail'])%>
+        
+      </div>
+      <div class="col-lg-3"><br><br><br>
+        <%= image_tag(@event['authorThumbnail'])%>
+      </div>
+      <div class="col-lg-6">
+        <h2 class="uppercase"><%= @event['author'] %> </h2>
+        <hr>
+        <p><%= @event['date'].to_time.strftime('%B %e, %Y') %><br>
+          <%= @event['time'].in_time_zone('Eastern Time (US & Canada)').to_time.strftime('%l:%M %p') %><br>
+          <%= @event['place'] %> <%= link_to "(maps)", "http://maps.google.com/?q=" + @event['address'] %> </p>
+        
+        <p class="fw-strong"><%= @event['bookTitle'] %></p>
+        <p><%= @event['description'] %></p>
+        <p><%= @event['description2'] %></p>
+        <p><%= @event['description3'] %></p>
+        
+           <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              Register
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Register for <%= @event['eventTitle'] %> with <%= @event['author'] %></h4>
+                    <h5 class="fw-italic"><%= @event['bookTitle'] %></h5>
+                  </div>
+                  <div class="modal-body">
+                      <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="event">Event:</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="event" value="<%= @event['eventTitle'] %>" disabled="disabled" >
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="name">Name:</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" placeholder="Firstname Lastname">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="phone">Phone:</label>
+                          <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="phone" placeholder="Enter phone number">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="email">Email:</label>
+                          <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-2"></div>
+                          <div class="col-sm-10">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" checked> Contact me to pre-order a copy of <span class="fw-italic fw-strong"><%= @event['bookTitle'] %></span>
+                            </label><br>
+                            <label>
+                              <input type="checkbox"> Subscribe to our newsletter
+                            </label>
+                        </div>
+                      </div>
+
+                        
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                  </div>
+                  <a href="https://twitter.com/share" class="twitter-share-button al-r" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    
+                  </div>
+                </div>
+              </div>
+</div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+<script>
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+
+</script>

@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 class="uppercase">Events</h1>
+  <hr>
+  
+  
+      
+        <% i = 1 %>
+        <% @events['results'].each do |event| %>
+        <div  class="row">
+        <div class="col-lg-2"><br><br>
+        
+        <%= image_tag(event['bookThumbnail'], size: "200x260")%>
+        
+      </div>
+      <div class="col-lg-2"><br><br><br>
+        <%= image_tag(event['authorThumbnail'], size: "150x220")%>
+      </div>
+        <div class='col-lg-8'>
+          <%= event['image']%>
+          <h2 class="uppercase"><%= event['author'] %></h2>
+          <h3><%= event['eventTitle']%>: <%= event['bookTitle'] %></h3>
+          <ul>
+            <li><%= event['date'].to_time.strftime('%B %e, %Y')%></li>
+            <li><%= event['time'].in_time_zone('Eastern Time (US & Canada)').to_time.strftime('%l:%M %p')%></li>
+          </ul>
+          <p><%= event['description']%></p>
+          
+          <%= button_to 'View', event_path(i), :class => "btn btn-default", method: :get %> 
+
+          
+        <% i += 1 %>
+        </div>
+
+      </div>
+      <hr>
+        <% end %>
+    
+  </div>
+</div>
