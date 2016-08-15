@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="uppercase">FAQs</h1>
+  <hr>
+<div  class="row">
+        <% i = 1 %>
+        <% @faqs['results'].each do |faq| %>
+        <div class="panel panel-default">
+          <div class="panel-heading"><span class="fw-strong">Question:</span> <%= faq['question'] %></div>
+          <div class="panel-body">
+            <p><span class="fw-strong">Answer:</span> <%= faq['answer'] %></p>
+          </div>
+        </div>
+        
+        <% i += 1 %>
+      
+      
+        <% end %>
+    </div>
+  </div>
+</div>

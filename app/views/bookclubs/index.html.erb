@@ -1,0 +1,37 @@
+<div class="container">
+  <h1 class="uppercase">Bookclubs</h1>
+  <hr>
+  <div class="row">
+    <% i = 1 %>
+    <% @bookclubs['results'].each do |bookclub| %>
+    
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= bookclub['title'] %></h3>
+          </div>
+          <div class="panel-body">
+            <p> When: <%= bookclub['dateTime'] %></p>
+          <p> Contact: <%= bookclub['contact'] %></p>
+          <p> <%= bookclub['description'] %></p>
+          <p> <%= bookclub['description2'] %></p>
+          <p> <%= bookclub['description3'] %></p>
+          </div>
+        </div>
+          
+          
+        
+        
+          
+
+
+        </div>
+
+      <% i += 1 %>
+
+      
+      
+      <% end %>
+      </div>
+  
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 class="uppercase">Storytimes</h1>
+  <hr>
+  <div class="row">
+    <% i = 1 %>
+    <% @storytimes['results'].each do |storytime| %>
+    <div class="col-lg-4">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= storytime['title'] %></h3>
+          </div>
+          <div class="panel-body">
+            <p> <%= storytime['when'] %></p>
+            <p> <%= storytime['audience'] %></p>
+            <p> <%= storytime['description'] %></p>
+            <p> <%= storytime['description2'] %></p>
+          </div>
+        </div>
+          
+          
+        
+        
+          
+
+
+        </div>
+
+      <% i += 1 %>
+
+      
+      
+      <% end %>
+      </div>
+  
+</div>
